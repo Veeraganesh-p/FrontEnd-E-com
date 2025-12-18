@@ -1,26 +1,22 @@
-import { FaHome, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import './Contact.css';
+
 function Contact() {
     return (
-        <div className='contact-container'>
-            <div className="main-div">
-                <h1 className='contact-head'>CONTACT US</h1>
-                <p>Feel free to reach out to us for any info</p>
-            </div>
-            <div className='low-contact'>
-                <div className="low-contact-box">
-                    
-                    <p className='low-contact-head'><FaHome className='contact-icon' /> VISIT US</p>
+        <div className='contact-page'>
+            <h1>Contact Us</h1>
+            <p>Feel free to reach out to us for any information</p>
+            
+            <div className='contact-info'>
+                <div className="contact-box">
+                    <h3>Visit Us</h3>
                     <p>Chennai, Tamil Nadu, India</p>
                 </div>
-                <div className="low-contact-box">
-                    
-                    <p className='low-contact-head'><FaPhoneAlt className="contact-icon" />CALL US</p>
+                <div className="contact-box">
+                    <h3>Call Us</h3>
                     <p>+91 9360232782</p>
                 </div>
-                <div className="low-contact-box">
-                    
-                    <p className='low-contact-head'><FaEnvelope className="contact-icon" />MAIL US</p>
+                <div className="contact-box">
+                    <h3>Email Us</h3>
                     <p>veeramarket@gmail.com</p>
                 </div>
             </div>

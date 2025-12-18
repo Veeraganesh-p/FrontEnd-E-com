@@ -1,1 +1,4 @@
-@import "tailwindcss";
+/* Basic app styles */
+.app {
+  min-height: 100vh;
+}

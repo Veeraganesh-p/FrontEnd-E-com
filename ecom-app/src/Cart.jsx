@@ -54,7 +54,7 @@ function Cart() {
 
   if (cartItems.length === 0) {
     return (
-      <div className="cart-container">
+      <div className="cart-page">
         <h1>Cart</h1>
         <p>Your cart is empty!</p>
       </div>
@@ -62,7 +62,7 @@ function Cart() {
   }
 
   return (
-    <div className="cart-container">
+    <div className="cart-page">
       <h1>Your Cart</h1>
 
       <div className="cart-items">
@@ -72,26 +72,26 @@ function Cart() {
               <img
                 src={item.image}
                 alt={item.name}
-                className="cart-item-img"
+                className="item-image"
               />
             )}
 
-            <div className="cart-item-info">
+            <div className="item-details">
               <h3>{item.name}</h3>
               <p>Price: ₹{item.price}</p>
 
-              <div className="cart-quantity">
+              <div className="quantity-controls">
                 <button onClick={() => handleDecrease(item._id)}>-</button>
                 <span>{item.quantity}</span>
                 <button onClick={() => handleIncrease(item._id)}>+</button>
               </div>
 
-              <p className="cart-subtotal">
+              <p className="subtotal">
                 Subtotal: ₹{item.price * item.quantity}
               </p>
 
               <button
-                className="cart-remove"
+                className="remove-btn"
                 onClick={() => handleRemove(item._id)}
               >
                 Remove
@@ -101,9 +101,9 @@ function Cart() {
         ))}
       </div>
 
-      <div className="cart-summary">
+      <div className="cart-total">
         <h2>Total: ₹{totalCost}</h2>
-        <button className="cart-buy-btn" onClick={handleProceedToBuy}>
+        <button className="buy-btn" onClick={handleProceedToBuy}>
           Proceed to Buy
         </button>
       </div>

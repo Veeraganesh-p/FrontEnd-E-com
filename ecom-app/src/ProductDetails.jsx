@@ -5,15 +5,27 @@ import './ProductDetails.css';
 function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/getproduct')
-      .then(res => res.json())
-      .then(data => {
-        const foundProduct = data.find(p => p._id === id);
-        setProduct(foundProduct);
+    setLoading(true);
+    fetch(`http://localhost:5000/api/products/${id}`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Product not found');
+        }
+        return res.json();
       })
-      .catch(err => console.error(err));
+      .then(data => {
+        setProduct(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error(err);
+        setError(err.message);
+        setLoading(false);
+      });
   }, [id]);
 
   const handleAddtoCart = () => {
@@ -30,18 +42,30 @@ function ProductDetails() {
   alert("Added to cart")
   };
 
+  if (loading) {
+    return <div className="product-details"><h2>Loading...</h2></div>;
+  }
+
+  if (error) {
+    return <div className="product-details"><h2>Error: {error}</h2></div>;
+  }
+
   if (!product) {
-    return <h2>Product not found!</h2>;
+    return <div className="product-details"><h2>Product not found!</h2></div>;
   }
 
   return (
-    <div className="pd-container">
-      <h2 className="pd-head">{product.name}</h2>
-      <img className="pd-img"src={product.image} alt={product.name} />
-      <p className="pd-about"><b>About:</b> {product.description}</p>
-      <p className="pd-price"><strong>Price:</strong> ₹{product.price}</p>
-      <button className="pd-button" onClick={handleAddtoCart}>Add to Cart</button>
-      <button className="pd-buy">Buy now</button>
+    <div className="product-details">
+      <h2>{product.name}</h2>
+      <img src={product.image} alt={product.name} />
+      <p><strong>Description:</strong> {product.description}</p>
+      <p className="price"><strong>Price:</strong> ₹{product.price}</p>
+      {product.category && <p><strong>Category:</strong> {product.category}</p>}
+      {product.stock !== undefined && <p><strong>Stock:</strong> {product.stock} available</p>}
+      <div className="buttons">
+        <button className="cart-btn" onClick={handleAddtoCart}>Add to Cart</button>
+        <button className="buy-btn">Buy Now</button>
+      </div>
     </div>
   );
 }
