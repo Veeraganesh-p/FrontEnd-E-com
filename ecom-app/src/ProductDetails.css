@@ -1,0 +1,73 @@
+.pd-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 50px;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    color: #2d3748;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+.pd-head{
+    font-weight: 900;
+    font-size: 38px;
+    margin-bottom: 25px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.pd-img {
+    margin-bottom: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    max-width: 500px;
+}
+.pd-about {
+    margin-bottom: 20px;
+    font-size: 17px;
+    line-height: 1.6;
+}
+.pd-price {
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #ff6b9d;
+}
+.pd-button {
+    background: rgba(255, 255, 255, 0.9);
+    color: #ff6b9d;
+    border: 3px solid #ff6b9d;
+    height: 50px;
+    width: 150px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.pd-button:hover {
+    background: #ff6b9d;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 107, 157, 0.4);
+}
+.pd-buy {
+    background: linear-gradient(135deg, #ff6b9d 0%, #c471ed 100%);
+    color: white;
+    height: 50px;
+    width: 150px;
+    border-radius: 25px;
+    margin-left: 15px;
+    border: none;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+    transition: all 0.3s;
+}
+.pd-buy:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255, 107, 157, 0.5);
+}

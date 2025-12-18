@@ -1,0 +1,58 @@
+.nav {
+  height: 75px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  border-bottom: 3px solid #ff6b9d;
+}
+
+.nav-logo {
+  font-size: 32px;
+  font-weight: 800;
+  background: linear-gradient(45deg, #ff6b9d, #c471ed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #2d3748;
+  font-size: 16px;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: #ff6b9d;
+  transition: width 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ff6b9d;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
